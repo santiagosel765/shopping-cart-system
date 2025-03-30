@@ -1,0 +1,37 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /payment-service
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/shopping-cart-db
+    username: postgres
+    password: root
+    hikari:
+      connection-timeout: 10000
+      idle-timeout: 50000
+      minimum-idle: 1
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: public
+
+jwt:
+  secret: Z3nU52@93xDklq902hAs78bLcNjsL29cHSsA9kPmsJq9kdPoaVq
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
